@@ -5,16 +5,13 @@ services:
     container_name: db
     image: mysql
     restart: always
-    command: --default-authentication-plugin=caching_sha2_password
     environment:
-      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+      MYSQL_ROOT_PASSWORD: 12345678
       TZ: Asia/Bangkok
     ports:
       - 3306:3306
     volumes:
-      - "database:/var/lib/mysql"
-    secrets:
-      - db_root_password
+      - "/data:/var/lib/mysql"
     networks:
       - database
 
@@ -32,12 +29,3 @@ services:
 networks:
   database:
     driver: bridge
-
-volumes:
-  database:
-    name: database
-    driver: local
-
-secrets:
-  db_root_password:
-    file: ./password
