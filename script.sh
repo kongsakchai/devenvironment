@@ -1,19 +1,35 @@
-#!/bin/s
-alias c:='cd /mnt/c'
-alias d:='cd /mnt/d'
+# --- Workspaces Management Commands ---
 
-prj() {
-    cd ~/projects/$1
-}
-
-lab() {
-    cd ~/labs/$1
-}
-
+# ws: Make in Workspaces
 ws() {
-    cd ~/workspaces/$1
+  make -C "$DEV/workspaces/$1" $2
 }
 
-wss() {
-    make -C "~/workspaces/$1" $2
+# wg: Go to Workspace
+wg() {
+  cd "$DEV/workspaces/$1"
+}
+
+# --- Project Commands ---
+
+# pr: Make in Projects
+pr() {
+  make -C "$DEV/projects/$1" $2
+}
+
+# pg: Go to Projects
+pg() {
+  cd "$DEV/projects/$1" || return
+}
+
+# --- Lab Commands ---
+
+# lb: Manage Labs
+lb() {
+  make -C "$DEV/labs/$1" $2
+}
+
+# lg: Go to Labs
+lg() {
+  cd "$DEV/labs/$1"
 }
