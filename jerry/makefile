@@ -1,8 +1,11 @@
+.PHONY: start
 start:
-	docker compose up -d
+	podman compose up -d
 
+.PHONY: stop
 stop:
-	docker compose down
+	podman compose down
 
+.PHONY: restore
 restore:
 	sudo rm -rf data
