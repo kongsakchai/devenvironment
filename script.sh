@@ -24,7 +24,7 @@ pg() {
 
 # --- Lab Commands ---
 
-# lb: Manage Labs
+# lb: Make in Projects
 lb() {
   make -C "$DEV/labs/$1" $2
 }
@@ -32,4 +32,16 @@ lb() {
 # lg: Go to Labs
 lg() {
   cd "$DEV/labs/$1"
+}
+
+# --- Second Braind Command ---
+
+# sb: Make in Second Brains ---
+sb() {
+  make -C "$DEV/brains/$1"
+}
+
+# sg: Go to Second Brains ---
+sg() {
+  cd "$DEV/brains/$1"
 }
