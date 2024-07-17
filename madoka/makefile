@@ -4,8 +4,8 @@ start:
 
 .PHONY: stop
 stop:
-	podman compose down
+	podman compose down && podman network prune -f
 
 .PHONY: restore
 restore:
-	sudo rm -rf data
+	sudo rm -rf backup

@@ -8,12 +8,10 @@ fi
 
 # ตรวจสอบว่า shell ที่ใช้อยู่คือ bash หรือ zsh
 if [ "$SHELL" = "/bin/bash" ] || [ "$SHELL" = "/usr/bin/bash" ]; then
-  # เพิ่มคำว่า hello ใน .bashrc
   echo -e "\n# My Path \nexport DEV=$1" >> ~/.bashrc
   echo -e "source $1/workspaces/script.sh" >> ~/.bashrc
   export DEV=$1
 elif [ "$SHELL" = "/bin/zsh" ] || [ "$SHELL" = "/usr/bin/zsh" ]; then
-  # เพิ่มคำว่า hello ใน .zshrc
   echo -e "\n# My Path \nexport DEV=$1" >> ~/.zshrc
   echo -e "source $1/workspaces/script.sh" >> ~/.zshrc
   export DEV=$1

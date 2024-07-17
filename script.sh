@@ -10,6 +10,11 @@ wg() {
   cd "$DEV/workspaces/$1"
 }
 
+# wv: View Workspaces
+wv() {
+  ls "$DEV/workspaces"
+}
+
 # --- Project Commands ---
 
 # pr: Make in Projects
@@ -19,7 +24,12 @@ pr() {
 
 # pg: Go to Projects
 pg() {
-  cd "$DEV/projects/$1" || return
+  cd "$DEV/projects/$1"
+}
+
+# pv: View Projects
+pv() {
+  ls "$DEV/projects"
 }
 
 # --- Lab Commands ---
@@ -34,14 +44,24 @@ lg() {
   cd "$DEV/labs/$1"
 }
 
+# lv: View Labs
+lv() {
+  ls "$DEV/labs"
+}
+
 # --- Second Braind Command ---
 
 # sb: Make in Second Brains ---
-sb() {
-  make -C "$DEV/brains/$1"
+br() {
+  make -C "$DEV/brains" $2
 }
 
 # sg: Go to Second Brains ---
-sg() {
-  cd "$DEV/brains/$1"
+brg() {
+  cd "$DEV/brains"
+}
+
+# sv: View Second Brains ---
+brv() {
+  ls "$DEV/brains"
 }

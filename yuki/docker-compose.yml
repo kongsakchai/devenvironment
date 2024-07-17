@@ -1,0 +1,6 @@
+services:
+  ubuntu:
+    image: ubuntu
+
+  golang:
+    image: golang:alpine

@@ -1,0 +1,34 @@
+services:
+  database:
+    container_name: database
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./backup/postgres:/var/lib/postgresql/data
+
+  adminer:
+    container_name: adminer
+    image: adminer:latest
+    ports:
+      - "5431:8080"
+    environment:
+      ADMINER_DESIGN: dracula
+      ADMINER_DEFAULT_SERVER: database
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./backup/redis:/data
+
+  redisinsight:
+    container_name: redisinsight
+    image: redis/redisinsight:latest
+    ports:
+      - "6378:5540"
