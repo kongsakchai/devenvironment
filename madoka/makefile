@@ -1,10 +1,10 @@
 .PHONY: start
 start:
-	podman compose up -d
+	docker compose up -d
 
 .PHONY: stop
 stop:
-	podman compose down && podman network prune -f
+	docker compose down && podman network prune -f
 
 .PHONY: restore
 restore:

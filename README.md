@@ -10,7 +10,7 @@ Develop envinronment with short command
 $ ws morty
 ```
 
-run _podman compose up -d_
+run _docker compose up -d_
 
 ## Setup
 

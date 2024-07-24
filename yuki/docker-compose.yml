@@ -1,6 +1,19 @@
 services:
-  ubuntu:
-    image: ubuntu
+  db:
+    container_name: yuki-db
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./backup/mariadb:/var/lib/mysql
 
-  golang:
-    image: golang:alpine
+  adminer:
+    container_name: adminer
+    image: adminer:latest
+    ports:
+      - "3305:8080"
+    environment:
+      ADMINER_DESIGN: dracula
+      ADMINER_DEFAULT_SERVER: db

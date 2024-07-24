@@ -1,4 +1,4 @@
-# --- Workspaces Management Commands ---
+#!/bin/bash
 
 # ws: Make in Workspaces
 ws() {
