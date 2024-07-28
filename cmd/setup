@@ -6,17 +6,25 @@ if [ -z "$1" ]; then
   return
 fi
 
-# ตรวจสอบว่า shell ที่ใช้อยู่คือ bash หรือ zsh
-if [ "$SHELL" = "/bin/bash" ] || [ "$SHELL" = "/usr/bin/bash" ]; then
-  echo -e "\n# My Path \nexport DEV=$1" >> ~/.bashrc
-  echo -e "export DEV_CMD=$PWD" >> ~/.bashrc
-  echo -e "source \$DEV_CMD/script" >> ~/.bashrc
-  source ~/.bashrc
-elif [ "$SHELL" = "/bin/zsh" ] || [ "$SHELL" = "/usr/bin/zsh" ]; then
-  echo -e "\n# My Path \nexport DEV=$1" >> ~/.zshrc
-  echo -e "export DEV_CMD=$PWD" >> ~/.zshrc
-  echo -e "source \$DEV_CMD/script" >> ~/.zshrc
-  source ~/.zshrc
-else
-  echo "Unsupported shell: $SHELL"
+if [ $SHELL = "/bin/bash" ] || [ $SHELL = "/usr/bin/bash" ]; then
+  File=~/.bashrc
+elif [ $SHELL = "/bin/zsh" ] || [ $SHELL = "/usr/bin/zsh" ]; then
+  File=~/.zshrc
+fi
+
+if [ -z $WS_CMD ]; then
+  PATH=$(dirname "$(realpath "$0")")
+  echo "" >> $File
+  echo "# Workspaces" >> $File
+  echo "export WS_CMD=$PATH" >> $File
+  echo "source \$WS_CMD/script" >> $File
+  echo "# export PATH=\$PATH:\$WS_CMD/podman" >> $File
+  . $File
+fi
+
+if [ $1 = "dev" ] && [ -d $2 ]; then
+  echo "" >> $File
+  echo "# Dev Path" >> $File
+  echo "export DEV=$2" >> $File
+  return
 fi
