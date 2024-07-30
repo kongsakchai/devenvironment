@@ -1,0 +1,3 @@
+#!/bin/bash
+
+# export PATH=$PATH:$WS_CMD/podman

@@ -18,7 +18,7 @@ if [ -z $WS_CMD ]; then
   echo "# Workspaces" >> $File
   echo "export WS_CMD=$PATH" >> $File
   echo "source \$WS_CMD/script" >> $File
-  echo "# export PATH=\$PATH:\$WS_CMD/podman" >> $File
+  echo "source \$WS_CMD/config" >> $File
   . $File
 fi
 
@@ -26,5 +26,4 @@ if [ $1 = "dev" ] && [ -d $2 ]; then
   echo "" >> $File
   echo "# Dev Path" >> $File
   echo "export DEV=$2" >> $File
-  return
 fi
