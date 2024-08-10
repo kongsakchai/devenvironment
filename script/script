@@ -53,7 +53,7 @@ lv() {
 
 # sb: Make in Second Brains ---
 br() {
-  make -C "$DEV/brains" $2
+  make -C "$DEV/brains" $1
 }
 
 # sg: Go to Second Brains ---
