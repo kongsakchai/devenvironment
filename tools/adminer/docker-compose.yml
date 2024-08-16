@@ -6,3 +6,6 @@ services:
       - "9931:8080"
     environment:
       ADMINER_DESIGN: dracula
+    volumes:
+      - ./plugins:/var/www/html/plugins-enabled
+      - ./backup/config:/var/www/html/config
