@@ -29,32 +29,34 @@ class CustomLogin {
         ];
 		?>
 
-		<table cellspacing='0' class='layout'>
-			<tr>
-				<th><?php echo lang('System') ?></th>
-				<td><?php echo html_select("auth[driver]", $drivers, DRIVER, "loginDriver(this);") ?></td>
-			</tr>
-			<tr>
-				<th><?php echo lang('Server') ?></th>
-				<td><input name="auth[server]" value="<?php echo h(SERVER) ?>" title="hostname[:port]" placeholder="localhost" autocapitalize="off"></td>
-			</tr>
-			<tr>
-				<th><?php echo lang('Username') ?></th>
-				<td><input name="auth[username]" id="username" value="<?php echo h($_GET["username"]) ?>" autocomplete="username" autocapitalize="off"><?php echo script("focus(qs('#username')); qs('#username').form['auth[driver]'].onchange();") ?></td>
-			</tr>
-			<tr>
-				<th><?php echo lang('Password') ?></th>
-				<td><input type="password" name="auth[password]" autocomplete="current-password"></td>
-			</tr>
-			<tr>
-				<th><?php echo lang('Database') ?></th>
-				<td><input name="auth[db]" value="<?php echo h($_GET["db"]) ?>" autocapitalize="off"></td>
-			</tr>
-		</table>
-		<section style="display:flex;align-items:center;gap:8px">
-			<p><input type='submit' value='<?php echo lang('Login') ?>'></p>
-			<?php echo checkbox("auth[permanent]", 1, $_COOKIE["adminer_permanent"], lang('Permanent login')) ?>
-		</section>
+		<form action="" method="post">
+			<table cellspacing='0' class='layout'>
+				<tr>
+					<th><?php echo lang('System') ?></th>
+					<td><?php echo html_select("auth[driver]", $drivers, DRIVER, "loginDriver(this);") ?></td>
+				</tr>
+				<tr>
+					<th><?php echo lang('Server') ?></th>
+					<td><input name="auth[server]" value="<?php echo h(SERVER) ?>" title="hostname[:port]" placeholder="localhost" autocapitalize="off"></td>
+				</tr>
+				<tr>
+					<th><?php echo lang('Username') ?></th>
+					<td><input name="auth[username]" id="username" value="<?php echo h($_GET["username"]) ?>" autocomplete="username" autocapitalize="off"><?php echo script	("focus(qs('#username')); qs('#username').form['auth[driver]'].onchange();") ?></td>
+				</tr>
+				<tr>
+					<th><?php echo lang('Password') ?></th>
+					<td><input type="password" name="auth[password]" autocomplete="current-password"></td>
+				</tr>
+				<tr>
+					<th><?php echo lang('Database') ?></th>
+					<td><input name="auth[db]" value="<?php echo h($_GET["db"]) ?>" autocapitalize="off"></td>
+				</tr>
+			</table>
+			<section style="display:flex;align-items:center;gap:8px">
+				<p><input type='submit' value='<?php echo lang('Login') ?>'></p>
+				<?php echo checkbox("auth[permanent]", 1, $_COOKIE["adminer_permanent"], lang('Permanent login')) ?>
+			</section>
+		</form>
 
 		<br/>
 
