@@ -37,8 +37,8 @@ $ ./setup.sh ~/kong
 You can do this by adding the following line to your profile file (~/.bash_profile, ~/.zshrc, ~/.profile, or ~/.bashrc).
 
 ```
-export DEV=YOUR_PATH
-source YOUR_PATH/workspaces/script.sh
+export ME=YOUR_PATH
+source $ME/workspaces/.config
 ```
 
 **Note:** This not apply untill the next time you log into your terminal. You can run the following commands for the different shells on the command line:
@@ -50,6 +50,6 @@ zsh: source ~/.zshrc
 
 ## Requirement
 
-- makefile
-- podman
-- podman-compose
+-   makefile
+-   podman or docker
+-   docker-compose

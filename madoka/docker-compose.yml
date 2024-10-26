@@ -7,7 +7,7 @@ services:
     volumes:
       - ./backup/redis:/data
 
-  redisinsight:
-    image: redis/redisinsight:latest
-    ports:
-      - "6378:5540"
+  # redisinsight:
+  #   image: redis/redisinsight:latest
+  #   ports:
+  #     - "6378:5540"

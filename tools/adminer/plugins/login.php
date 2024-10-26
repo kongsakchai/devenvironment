@@ -29,7 +29,10 @@ class CustomLogin {
         ];
 		?>
 
-		<form action="" method="post">
+		<form action="" method="post" hidden>
+		</form>
+
+		<form id="loginForm" action="" method="post" >
 			<table cellspacing='0' class='layout'>
 				<tr>
 					<th><?php echo lang('System') ?></th>
@@ -37,7 +40,7 @@ class CustomLogin {
 				</tr>
 				<tr>
 					<th><?php echo lang('Server') ?></th>
-					<td><input name="auth[server]" value="<?php echo h(SERVER) ?>" title="hostname[:port]" placeholder="localhost" autocapitalize="off"></td>
+					<td><input name="auth[server]" value="<?php echo h(SERVER)=="" ? "localhost" : h(SERVER) ?>" title="hostname[:port]" placeholder="localhost" autocapitalize="off"></td>
 				</tr>
 				<tr>
 					<th><?php echo lang('Username') ?></th>
@@ -86,7 +89,7 @@ class CustomLogin {
 					<td><?php echo $name ?></td>
 					<td><?php echo "($drivers[$driver]) " . $host ?></td>
 					<td><?php echo $username ?></td>
-					<td><?php echo $database ?></td>
+					<td><?php echo $database == "" ? "-":$databas  ?></td>
 					<td>
 						<form action="" method="post">
 							<input type="hidden" name="auth[driver]" value="<?php echo $driver; ?>">
@@ -104,6 +107,19 @@ class CustomLogin {
 			?>
 			</tbody>
 		</table>
+
+		<script <?php echo nonce(); ?> >
+			const form = qs('#loginForm')
+			form.addEventListener('submit', function(event) {
+				const serverName = qs('input[name="auth[server]"]');
+				const name = serverName.value;
+				if (name.includes('localhost')) {
+					serverName.value = name.replace('localhost', 'host.docker.internal');
+				}
+
+				return true;
+			})
+		</script>
 
 		<?php
 		return true;

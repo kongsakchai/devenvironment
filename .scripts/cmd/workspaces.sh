@@ -1,67 +1,71 @@
 #! /bin/bash
 
+dev() {
+  cd "$ME"
+}
+
 # ws: Make in Workspaces
 ws() {
-  make -C "$DEV/workspaces/$1" $2
+  make -C "$ME/workspaces/$1" $2
 }
 
 # wg: Go to Workspace
 wg() {
-  cd "$DEV/workspaces/$1"
+  cd "$ME/workspaces/$1"
 }
 
 # wv: View Workspaces
 wv() {
-  ls "$DEV/workspaces"
+  ls "$ME/workspaces"
 }
 
 # --- Project Commands ---
 
 # pr: Make in Projects
 pr() {
-  make -C "$DEV/projects/$1" $2
+  make -C "$ME/projects/$1" $2
 }
 
 # pg: Go to Projects
 pg() {
-  cd "$DEV/projects/$1"
+  cd "$ME/projects/$1"
 }
 
 # pv: View Projects
 pv() {
-  ls "$DEV/projects"
+  ls "$ME/projects"
 }
 
 # --- Lab Commands ---
 
 # lb: Make in Projects
 lb() {
-  make -C "$DEV/labs/$1" $2
+  make -C "$ME/labs/$1" $2
 }
 
 # lg: Go to Labs
 lg() {
-  cd "$DEV/labs/$1"
+  cd "$ME/labs/$1"
 }
 
 # lv: View Labs
 lv() {
-  ls "$DEV/labs"
+  ls "$ME/labs"
 }
 
 # --- Second Braind Command ---
 
 # sb: Make in Second Brains ---
 br() {
-  make -C "$DEV/brains" $1
+  make -C "$ME/brains" $1
 }
 
 # sg: Go to Second Brains ---
 brg() {
-  cd "$DEV/brains"
+  cd "$ME/brains"
 }
 
 # sv: View Second Brains ---
 brv() {
-  ls "$DEV/brains"
+  ls "$ME/brains"
 }
