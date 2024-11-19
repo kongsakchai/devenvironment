@@ -85,11 +85,11 @@ class CustomLogin {
 				$pass = $server['pass'];
 				$database = $server['db'];
 				?>
-				<tr style="text-align:center;">
+				<tr style="text-align:left;">
 					<td><?php echo $name ?></td>
 					<td><?php echo "($drivers[$driver]) " . $host ?></td>
 					<td><?php echo $username ?></td>
-					<td><?php echo $database == "" ? "-":$databas  ?></td>
+					<td><?php echo $databas  ?></td>
 					<td>
 						<form action="" method="post">
 							<input type="hidden" name="auth[driver]" value="<?php echo $driver; ?>">
