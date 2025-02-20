@@ -92,6 +92,7 @@ class CustomLogin {
 					<td><?php echo $databas  ?></td>
 					<td>
 						<form action="" method="post">
+                            <input type="hidden" name="server_name" value="<?php echo $driver; ?>">
 							<input type="hidden" name="auth[driver]" value="<?php echo $driver; ?>">
 							<input type="hidden" name="auth[server]" value="<?php echo $host; ?>">
 							<input type="hidden" name="auth[username]" value="<?php echo $username; ?>">

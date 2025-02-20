@@ -1,0 +1,31 @@
+#!/bin/bash
+
+if [ -n "$2" ]; then
+    root=$2
+else
+    root=$(pwd)
+fi
+
+args=$1
+
+if [ -n "$root" ] && [ ! -d "$root" ]; then
+    echo "not_found"
+    exit 1
+elif [ -d "$root/$args" ]; then
+    echo "$root/$args" | sed "s#//#/#"
+    exit 0
+fi
+
+args=$(
+    fd "" --type d --no-ignore $root \
+        --exclude "node_modules" --exclude "build" --exclude ".git" |
+        sed "s#$root/*##" |
+        fzf --height 40% --layout reverse --info inline --query "$args"
+)
+
+if [ -z "$args" ]; then
+    echo "$root"
+    exit 0
+fi
+
+echo "$root/$args" | sed "s#//#/#"
