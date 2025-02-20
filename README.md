@@ -6,8 +6,8 @@
 
 Develop envinronment with short command
 
-```
-$ ws morty
+```sh
+ws morty
 ```
 
 run _docker compose up -d_
@@ -16,40 +16,42 @@ run _docker compose up -d_
 
 Rename 'Devenvironment' folder to 'workspaces'.
 
-```
-$ mv devenvironment workspaces
+```sh
+mv devenvironment workspaces
 ```
 
 Run setup script.
 
-```
-$ cd workspaces && ./setup.sh YOUR_PATH
+```sh
+cd workspaces && ./setup.sh YOUR_PATH
 ```
 
 **Example:**
 
-```
-$ ./setup.sh ~/kong
+```sh
+./setup.sh ~/kong
 ```
 
 ## Manual Setup
 
 You can do this by adding the following line to your profile file (~/.bash_profile, ~/.zshrc, ~/.profile, or ~/.bashrc).
 
-```
+```sh
 export ME=YOUR_PATH
 source $ME/workspaces/.config
 ```
 
 **Note:** This not apply untill the next time you log into your terminal. You can run the following commands for the different shells on the command line:
 
-```
+```sh
 bash: source ~/.bashrc
 zsh: source ~/.zshrc
 ```
 
 ## Requirement
 
--   makefile
--   podman or docker
--   docker-compose
+- makefile
+- podman or docker
+- docker-compose
+- fzf
+- fd
