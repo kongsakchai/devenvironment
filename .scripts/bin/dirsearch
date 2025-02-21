@@ -16,12 +16,24 @@ elif [ -d "$root/$args" ]; then
     exit 0
 fi
 
-args=$(
-    fd "" --type d --no-ignore $root \
-        --exclude "node_modules" --exclude "build" --exclude ".git" |
-        sed "s#$root/*##" |
-        fzf --height 40% --layout reverse --info inline --query "$args"
-)
+if command -v -- fd >/dev/null 2>&1; then
+    args=$(
+        fd "" --type d --no-ignore $root \
+            --exclude "node_modules" --exclude "build" --exclude ".git" |
+            sed "s#$root/*##" |
+            fzf --height 40% --layout reverse --info inline --query "$args"
+    )
+elif command -v -- fdfind >/dev/null 2>&1; then
+    args=$(
+        fdfind "" --type d --no-ignore $root \
+            --exclude "node_modules" --exclude "build" --exclude ".git" |
+            sed "s#$root/*##" |
+            fzf --height 40% --layout reverse --info inline --query "$args"
+    )
+else
+    echo "fd_not_found"
+    exit 1
+fi
 
 if [ -z "$args" ]; then
     echo "$root"
