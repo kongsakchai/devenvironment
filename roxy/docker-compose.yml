@@ -1,6 +1,6 @@
 services:
   adminer:
-    container_name: adminer
+    container_name: roxy_adminer
     image: adminer:latest
     ports:
       - "9090:8080"

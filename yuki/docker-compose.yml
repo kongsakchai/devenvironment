@@ -1,10 +1,11 @@
 services:
   db:
-    container_name: yuki-db
-    image: mariadb:latest
+    container_name: yuki_postgres
+    image: postgres:latest
     environment:
-      MYSQL_ROOT_PASSWORD: example
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
     ports:
-      - '3306:3306'
+      - '5432:5432'
     volumes:
-      - ./backup/mariadb:/var/lib/mysql
+      - ./backup/postgres:/var/lib/postgresql/data
