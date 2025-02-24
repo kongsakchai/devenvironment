@@ -5,3 +5,7 @@ start:
 .PHONY: stop
 stop:
 	docker compose down && podman network prune -f
+
+.PHONY: copy
+copy:
+	cp docker-compose.yml $(FROM)/docker-compose-roxy.yml

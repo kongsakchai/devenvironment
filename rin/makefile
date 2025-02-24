@@ -9,3 +9,7 @@ stop:
 .PHONY: restore
 restore:
 	sudo rm -rf backup
+
+.PHONY: copy
+copy:
+	cp docker-compose.yml $(FROM)/docker-compose-rin.yml
