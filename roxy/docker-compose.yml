@@ -1,11 +1,11 @@
 services:
-  adminer:
-    container_name: roxy_adminer
-    image: adminer:latest
-    ports:
-      - "9090:8080"
+  beaver:
+    container_name: roxy_beaver
+    image: dbeaver/cloudbeaver:latest
+    restart: always
     environment:
-      ADMINER_DESIGN: haeckel
+      SERVER_ANONYMOUS_ACCESS_ENABLED: true
+    ports:
+      - "9090:8978"
     volumes:
-      - ./plugins:/var/www/html/plugins-enabled
-      - ./backup/config:/var/www/html/config
+      - ./backup/workspace:/opt/cloudbeaver/workspace

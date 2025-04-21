@@ -10,6 +10,6 @@ stop:
 restore:
 	sudo rm -rf backup
 
-.PHONY: copy
-copy:
+.PHONY: cp
+cp:
 	cp docker-compose.yml $(FROM)/docker-compose-yuki.yml

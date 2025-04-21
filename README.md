@@ -7,10 +7,8 @@
 Develop envinronment with short command
 
 ```sh
-ws morty
+ws rin # start redis container
 ```
-
-run _docker compose up -d_
 
 ## Setup
 
@@ -23,13 +21,13 @@ mv devenvironment workspaces
 Run setup script.
 
 ```sh
-cd workspaces && ./setup.sh YOUR_PATH
+cd workspaces && ./setup.sh YOUR_PATH_IN_HOME
 ```
 
 **Example:**
 
 ```sh
-./setup.sh ~/kong
+./setup.sh kong
 ```
 
 ## Manual Setup
@@ -37,8 +35,9 @@ cd workspaces && ./setup.sh YOUR_PATH
 You can do this by adding the following line to your profile file (~/.bash_profile, ~/.zshrc, ~/.profile, or ~/.bashrc).
 
 ```sh
-export ME=YOUR_PATH
-source $ME/workspaces/.config
+# Workspaces
+export WORKSPACE=YOUR_PATH
+source $WORKSPACE/workspaces/.config
 ```
 
 **Note:** This not apply untill the next time you log into your terminal. You can run the following commands for the different shells on the command line:
@@ -55,3 +54,63 @@ zsh: source ~/.zshrc
 - docker-compose
 - fzf
 - fd
+
+## Command
+
+use `gocover` to generate code coverage for your go project.
+
+```sh
+gocover args 
+```
+
+use `dirsearch` to search directory with fzf.
+
+```sh
+dirsearch args
+```
+
+use `docker` command instead of `podman` for podman user.
+
+```sh
+docker args
+```
+
+> [!Note]
+> You can disable this by removing the
+>
+> ```sh
+> export PATH=$PATH:$SCRIPTS/podman   # Use docker commands instead of podman
+> ```
+>
+> in `~/.config/workspaces/.config`.
+
+use `ws` command to start container. alais of `docker compose up -d`.
+
+```sh
+ws rin # start redis container
+ws marin # start mariadb container
+ws roxy # start cloudbeaver container
+ws yuki # start mysql container
+ws maomao # start mongo container
+```
+
+use `ws arg stop` to stop container. alais of `docker compose down`.
+
+```sh
+ws rin stop # stop redis container
+```
+
+use `ws arg cp` to copy `docker-compose.yml` to current directory.
+
+```sh
+ws rin cp # copy redis docker-compose.yml to current directory
+```
+
+use `wg`, `pg`, `lg` and `brg` to change directory to `workspaces` folder.
+
+```sh
+wg # go to workspaces folder
+pg # go to projects folder
+lg # go to lab folder
+brg # go to brains folder
+```
