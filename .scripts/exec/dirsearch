@@ -41,3 +41,4 @@ if [ -z "$args" ]; then
 fi
 
 echo "$root/$args" | sed "s#//#/#"
+exit 0

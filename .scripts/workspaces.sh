@@ -6,6 +6,7 @@ me() {
 
 # --- Workspace Commands ---
 work_path="$WORKSPACE/workspaces"
+history_file="$work_path/.history"
 
 # ws: Make in Workspaces
 ws() {
@@ -14,7 +15,8 @@ ws() {
 
 # wg: Go to Workspace
 wg() {
-    cd $(dirsearch "$1" $work_path)
+    dir=$(dirsearch "$1" $work_path)
+    cd $dir
 }
 
 # --- Project Commands ---
@@ -27,7 +29,8 @@ pr() {
 
 # pg: Go to Projects
 pg() {
-    cd $(dirsearch "$1" $project_path)
+    dir=$(dirsearch "$1" $project_path)
+    cd $dir
 }
 
 # --- Lab Commands ---
@@ -40,7 +43,8 @@ lb() {
 
 # lg: Go to Labs
 lg() {
-    cd $(dirsearch "$1" $lab_path)
+    dir=$(dirsearch "$1" $lab_path)
+    cd $dir
 }
 
 # --- Second Braind Command ---
