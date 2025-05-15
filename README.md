@@ -63,10 +63,10 @@ use `gocover` to generate code coverage for your go project.
 gocover args 
 ```
 
-use `dirsearch` to search directory with fzf.
+use `fdsearch` to search directory with fzf.
 
 ```sh
-dirsearch args
+fdsearch args
 ```
 
 use `docker` command instead of `podman` for podman user.
@@ -79,7 +79,7 @@ docker args
 > You can disable this by removing the
 >
 > ```sh
-> export PATH=$PATH:$SCRIPTS/podman   # Use docker commands instead of podman
+> alias docker='podman'
 > ```
 >
 > in `~/.config/workspaces/.config`.
