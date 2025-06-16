@@ -4,7 +4,7 @@ start:
 
 .PHONY: stop
 stop:
-	docker compose down && podman network prune -f
+	docker compose down 
 
 .PHONY: cp
 cp:

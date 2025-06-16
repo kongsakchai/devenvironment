@@ -4,7 +4,7 @@ start:
 
 .PHONY: stop
 stop:
-	docker compose down && podman network prune -f
+	docker compose down 
 
 .PHONY: restore
 restore:
@@ -12,4 +12,4 @@ restore:
 
 .PHONY: cp
 cp:
-	cp docker-compose.yml $(FROM)/docker-compose-maomao.yml
+	cp docker-compose.yml $(FROM)/docker-compose-marin.yml

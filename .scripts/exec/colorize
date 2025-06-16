@@ -1,7 +1,7 @@
 #!/usr/bin/awk -f
 
 # usage:
-#   go test ./... | colorize
+#   go test ./... | ./colorize
 
 BEGIN {
     # Set color codes
@@ -16,6 +16,7 @@ BEGIN {
 
 {color=NORMAL}
 
+/coverage: / { color=YELLOW }
 /ok/ { color=GREEN }
 /PASS/ { color=GREEN }
 /=== RUN/ { color=OVERLAY }
@@ -27,9 +28,9 @@ BEGIN {
 /Error:/ { color=YELLOW }
 /Error Trace:/ { color=YELLOW }
 
-/--- Expected/ { color=TEAL }
-/[^a-zA-Z]expected *:/ { color=TEAL }
-/\+\+\+ Actual/ { color=MAROON }
-/[^a-zA-Z](actual) *:/ { color=MAROON }
+/--- Expected/ { color=GREEN }
+/[^a-zA-Z]expected *:/ { color=GREEN }
+/\+\+\+ Actual/ { color=RED }
+/[^a-zA-Z](actual) *:/ { color=RED }
 
 {print color $0 NORMAL}

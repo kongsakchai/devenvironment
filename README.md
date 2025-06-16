@@ -63,10 +63,10 @@ use `gocover` to generate code coverage for your go project.
 gocover args 
 ```
 
-use `fdsearch` to search directory with fzf.
+use `fdir` to search directory with fzf.
 
 ```sh
-fdsearch args
+fdir args
 ```
 
 use `docker` command instead of `podman` for podman user.
@@ -79,10 +79,10 @@ docker args
 > You can disable this by removing the
 >
 > ```sh
-> alias docker='podman'
+> export PATH=$PATH:$WORKSPACE/workspaces/.scripts/podman
 > ```
 >
-> in `~/.config/workspaces/.config`.
+> in `~/.config/workspaces/.config` or use `wsconfig` open vim to edit config.
 
 use `ws` command to start container. alais of `docker compose up -d`.
 
@@ -91,7 +91,7 @@ ws rin # start redis container
 ws marin # start mariadb container
 ws roxy # start cloudbeaver container
 ws yuki # start mysql container
-ws maomao # start mongo container
+ws rem # start mongo container
 ```
 
 use `ws arg stop` to stop container. alais of `docker compose down`.
