@@ -1,10 +1,16 @@
+DOCKER := $(shell command -v docker || command -v podman)
+
 .PHONY: start
 start:
-	docker compose up -d
+	$(DOCKER) compose up -d
 
 .PHONY: stop
 stop:
-	docker compose down 
+	$(DOCKER) compose down 
+
+.PHONY: reset
+restore:
+	sudo rm -rf backup
 
 .PHONY: cp
 cp:

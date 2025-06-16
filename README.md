@@ -79,7 +79,7 @@ docker args
 > You can disable this by removing the
 >
 > ```sh
-> export PATH=$PATH:$WORKSPACE/workspaces/.scripts/podman
+> alias docker="podman" # Use podman as docker
 > ```
 >
 > in `~/.config/workspaces/.config` or use `wsconfig` open vim to edit config.
