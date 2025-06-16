@@ -1,7 +1,31 @@
 #! /bin/bash
 
-current_shell=$(echo $SHELL)
-if [[ $current_shell == *"zsh"* ]]; then
+#!/bin/bash
+
+echo "What's your shell?"
+echo "1) bash"
+echo "2) zsh"
+echo "3) fish"
+
+read -p "Please enter the number corresponding to your shell: " choice
+
+case $choice in
+  1)
+    user_shell="bash"
+    ;;
+  2)
+    user_shell="zsh"
+    ;;
+  3)
+    user_shell="fish"
+    ;;
+  *)
+    echo "Invalid choice. Please run the script again and select a valid option."
+    exit 1
+    ;;
+esac
+
+if [[ $user_shell == *"zsh"* ]]; then
     if ! grep -q "# Workspaces" ~/.zshrc; then
         echo "" >>~/.zshrc
         echo "# Workspaces" >>~/.zshrc
@@ -12,7 +36,9 @@ if [[ $current_shell == *"zsh"* ]]; then
     else
         echo "Workspaces already configured in .zshrc"
     fi
-elif [[ $current_shell == *"bash"* ]]; then
+fi
+
+if [[ $user_shell == *"bash"* ]]; then
     if ! grep -q "# Workspaces" ~/.bashrc; then
         echo "" >>~/.bashrc
         echo "# Workspaces" >>~/.bashrc
@@ -23,23 +49,17 @@ elif [[ $current_shell == *"bash"* ]]; then
     else
         echo "Workspaces already configured in .bashrc"
     fi
-elif [[ $current_shell == *"fish"* ]]; then
+fi
+
+if [[ $user_shell == *"fish"* ]]; then
     if ! grep -q "# Workspaces" ~/.config/fish/config.fish; then
         echo "" >>~/.config/fish/config.fish
         echo "# Workspaces" >>~/.config/fish/config.fish
         echo "set -gx WORKSPACE \$HOME/$1" >>~/.config/fish/config.fish
-        echo "source \$WORKSPACE/workspaces/.config" >>~/.config/fish/config.fish
+        echo "source \$WORKSPACE/workspaces/.config.fish" >>~/.config/fish/config.fish
 
         echo "Please restart your terminal or run 'source ~/.config/fish/config.fish' to apply changes."
     else
         echo "Workspaces already configured in config.fish"
     fi
-else
-    echo "Unsupported shell: $current_shell"
-    echo "Please configure your shell manually."
-    echo "Add the following lines to your shell configuration file:"
-    echo "=========================================="
-    echo "# Workspaces"
-    echo "export WORKSPACE=\$HOME/$1"
-    echo "source \$WORKSPACE/workspaces/.config"
 fi
