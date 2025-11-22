@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if command -v -- fd >/dev/null 2>&1; then
+        list=$(fd docker $WORKSPACE/workspaces | sed "s#$WORKSPACE/workspaces/*##")
+elif command -v -- fdfind >/dev/null 2>&1; then
+        list=$(fdfind docker $WORKSPACE/workspaces | sed "s#$WORKSPACE/workspaces/*##")
+else
+    echo "fd_not_found"
+    exit 1
+fi
+
+table="COMMAND IMAGE\n--- ---"
+
+for i in $list
+do
+    image=$(grep 'image:' $WORKSPACE/workspaces/$i | sed  -E "s#.*image:##")
+    cmd=$(echo $i | sed  -E "s#\/docker.*##")
+    table="$table\n$cmd $image" 
+done
+
+echo -e $table | column -t 

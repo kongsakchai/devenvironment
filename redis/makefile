@@ -14,4 +14,9 @@ restore:
 
 .PHONY: cp
 cp:
-	cp docker-compose.yml $(FROM)/docker-compose-roxy.yml
+	cp docker-compose.yml $(FROM)/docker-compose-rin.yml
+
+
+.PHONY: help
+help:
+	cat makefile

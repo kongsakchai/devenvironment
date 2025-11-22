@@ -1,10 +1,11 @@
 services:
   redis:
-    container_name: rin_redis
+    container_name: redis
     image: redis:alpine
     ports:
       - "6379:6379"
     volumes:
+      - ./backup/certs:/certs
       - ./backup/redis:/data
       - ./redis.conf:/usr/local/etc/redis/redis.conf
     command: redis-server /usr/local/etc/redis/redis.conf

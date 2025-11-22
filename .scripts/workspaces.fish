@@ -2,11 +2,19 @@ function me
     cd (fdir "$argv[1]" $WORKSPACE)
 end
 
+function jj
+    cd (fdir "$argv[1]" (pwd))
+end
+
 # --- Workspace Commands ---
 set -g work_path $WORKSPACE/workspaces
 set -g history_file $work_path/.history
 
 function ws
+    if test -z "$argv[1]"
+        wslist
+        return
+    end
     make -C (fdir "$argv[1]" $work_path) $argv[2] FROM=(pwd)
 end
 

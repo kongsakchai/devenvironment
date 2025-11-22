@@ -15,3 +15,7 @@ restore:
 .PHONY: cp
 cp:
 	cp docker-compose.yml $(FROM)/docker-compose-marin.yml
+
+.PHONY: help
+help:
+	cat makefile

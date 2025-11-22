@@ -4,12 +4,20 @@ me() {
     cd $(fdir "$1" $WORKSPACE)
 }
 
+jp() {
+    cd $(fdir "$1" $(PWD))
+}
+
 # --- Workspace Commands ---
 work_path="$WORKSPACE/workspaces"
 history_file="$work_path/.history"
 
 # ws: Make in Workspaces
 ws() {
+    if [ -z "$1" ]; then
+        wslist
+        return
+    fi
     make -C $(fdir "$1" $work_path) $2 FROM=$(PWD)
 }
 
