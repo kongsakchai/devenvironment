@@ -9,8 +9,8 @@ stop:
 	$(DOCKER) compose down 
 
 .PHONY: reset
-restore:
-	sudo rm -rf backup
+reset:
+	sudo rm -rf ./backup
 
 .PHONY: cp
 cp:
