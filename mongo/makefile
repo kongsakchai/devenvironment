@@ -14,7 +14,7 @@ reset:
 
 .PHONY: cp
 cp:
-	cp docker-compose.yml $(FROM)/docker-compose-rem.yml
+	cp docker-compose.yml $(FROM)/docker-compose.yml
 
 .PHONY: help
 help:
