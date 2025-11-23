@@ -16,7 +16,14 @@ restore:
 cp:
 	cp docker-compose.yml $(FROM)/docker-compose-rin.yml
 
-
 .PHONY: help
 help:
 	cat makefile
+
+.PHONY: edit
+edit:
+	vim docker-compose.yml
+
+.PHONY: conf
+edit:
+	vim redis.conf

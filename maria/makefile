@@ -19,3 +19,7 @@ cp:
 .PHONY: help
 help:
 	cat makefile
+
+.PHONY: edit
+edit:
+	vim docker-compose.yml
