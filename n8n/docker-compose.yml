@@ -1,0 +1,15 @@
+services:
+  n8n:
+    container_name: n8n
+    image: docker.n8n.io/n8nio/n8n
+    environment:
+      GENERIC_TIMEZONE: asia/bangkok
+      TZ: asia/bangkok
+      N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: true
+      N8N_RUNNERS_ENABLED: true
+      DB_TYPE: sqlite
+      DB_SQLITE_VACUUM_ON_STARTUP: true
+    ports:
+      - "5678:5678"
+    volumes:
+      - ./backup/n8n:/home/node/.n8n

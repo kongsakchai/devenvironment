@@ -4,7 +4,7 @@ me() {
     cd $(fdir "$1" $WORKSPACE)
 }
 
-jp() {
+jj() {
     cd $(fdir "$1" $(PWD))
 }
 

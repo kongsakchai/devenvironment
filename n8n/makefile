@@ -23,7 +23,3 @@ help:
 .PHONY: edit
 edit:
 	vim docker-compose.yml
-
-.PHONY: conf
-conf:
-	vim redis.conf
