@@ -2,8 +2,18 @@ function me
     cd (fdir "$argv[1]" $WORKSPACE)
 end
 
-function jj
-    cd (fdir "$argv[1]" (pwd))
+function jp
+    set dir (fdir "$argv[1]" "$argv[2]")
+    if test -n "$dir"
+        cd $dir
+    end
+end
+
+function ff
+    set dir (ffile "$argv[1]" "$argv[2]")
+    if test -n $dir
+        echo $dir
+    end
 end
 
 # --- Workspace Commands ---
@@ -19,8 +29,7 @@ function ws
 end
 
 function wg
-    set dir (fdir "$argv[1]" $work_path)
-    cd $dir
+    jp "$argv[1]" $work_path
 end
 
 # --- Project Commands ---
@@ -31,8 +40,7 @@ function pr
 end
 
 function pg
-    set dir (fdir "$argv[1]" $project_path)
-    cd $dir
+    jp "$argv[1]" $project_path
 end
 
 # --- Lab Commands ---
@@ -43,8 +51,7 @@ function lb
 end
 
 function lg
-    set dir (fdir "$argv[1]" $lab_path)
-    cd $dir
+    jp "$argv[1]" $lab_path
 end
 
 # --- Second Brain Commands ---
@@ -55,5 +62,5 @@ function br
 end
 
 function brg
-    cd (fdir "$argv[1]" $brain_path)
+    jp "$argv[1]" $brain_path
 end

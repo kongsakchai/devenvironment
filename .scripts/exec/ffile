@@ -18,17 +18,17 @@ fi
 
 if command -v -- fd >/dev/null 2>&1; then
     select=$(
-        fd "" --type d --no-ignore $root \
+        fd "" --type f --no-ignore $root \
             --exclude "node_modules" --exclude "build" --exclude ".git" |
             sed "s#$root/*##" |
             fzf --layout reverse --info inline --query "$args"
     )
 elif command -v -- fdfind >/dev/null 2>&1; then
     select=$(
-        fdfind "" --type d --no-ignore $root \
+        fdfind "" --type f --no-ignore $root \
             --exclude "node_modules" --exclude "build" --exclude ".git" |
             sed "s#$root/*##" |
-            fzf --layout reverse --info inline --query "$args"
+            fzf  --layout reverse --info inline --query "$args"
     )
 else
     echo "fd_not_found"

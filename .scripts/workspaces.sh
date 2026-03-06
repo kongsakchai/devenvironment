@@ -4,8 +4,18 @@ me() {
     cd $(fdir "$1" $WORKSPACE)
 }
 
-jj() {
-    cd $(fdir "$1" $(PWD))
+jp() {
+    dir=$(fdir "$1" "$2")
+    if [ -n $dir ]; then
+        cd $dir
+    fi
+}
+
+ff() {
+    dir=$(ffile "$1" "$2")
+    if [ -n $dir ]; then
+        echo $dir
+    if
 }
 
 # --- Workspace Commands ---
@@ -23,8 +33,7 @@ ws() {
 
 # wg: Go to Workspace
 wg() {
-    dir=$(fdir "$1" $work_path)
-    cd $dir
+    jp "$1" $work_path
 }
 
 # --- Project Commands ---
@@ -37,8 +46,7 @@ pr() {
 
 # pg: Go to Projects
 pg() {
-    dir=$(fdir "$1" $project_path)
-    cd $dir
+    jp "$1" $project_path
 }
 
 # --- Lab Commands ---
@@ -51,8 +59,7 @@ lb() {
 
 # lg: Go to Labs
 lg() {
-    dir=$(fdir "$1" $lab_path)
-    cd $dir
+    jp "$1" $lab_path
 }
 
 # --- Second Braind Command ---
@@ -65,5 +72,5 @@ br() {
 
 # sg: Go to Second Brains ---
 brg() {
-    cd $(fdir "$1" $brain_path)
+    jp "$1" $brain_path
 }
