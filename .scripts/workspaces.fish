@@ -1,7 +1,3 @@
-function me
-    cd (fdir "$argv[1]" $WORKSPACE)
-end
-
 function jp
     set dir (fdir "$argv[1]" "$argv[2]")
     if test -n "$dir"
@@ -14,6 +10,10 @@ function ff
     if test -n $dir
         echo $dir
     end
+end
+
+function me
+    jp "$argv[1]" $WORKSPACE
 end
 
 # --- Workspace Commands ---

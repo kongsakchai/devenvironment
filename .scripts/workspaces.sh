@@ -1,9 +1,5 @@
 #! /bin/bash
 
-me() {
-    cd $(fdir "$1" $WORKSPACE)
-}
-
 jp() {
     dir=$(fdir "$1" "$2")
     if [ -n $dir ]; then
@@ -15,7 +11,11 @@ ff() {
     dir=$(ffile "$1" "$2")
     if [ -n $dir ]; then
         echo $dir
-    if
+    fi
+}
+
+me() {
+    jp "$1" $WORKSPACE
 }
 
 # --- Workspace Commands ---
