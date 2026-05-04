@@ -9,7 +9,7 @@ else
     exit 1
 fi
 
-table="COMMAND IMAGE\n--- ---"
+table="COMMAND \n--- ---"
 
 for i in $list
 do
