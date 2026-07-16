@@ -2,7 +2,7 @@
 source $WORKSPACE/workspaces/.scripts/workspaces.fish
 
 # Executable
-set -x PATH $PATH $WORKSPACE/workspaces/.scripts/exec
+set -gx PATH $PATH $WORKSPACE/workspaces/.scripts/bin
 
 # Aliases
 alias note="nvim $WORKSPACE/brains/note.md" # Open note file
