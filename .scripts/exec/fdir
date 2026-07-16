@@ -21,14 +21,26 @@ if command -v -- fd >/dev/null 2>&1; then
         fd "" --type d --no-ignore $root \
             --exclude "node_modules" --exclude "build" --exclude ".git" |
             sed "s#$root/*##" |
-            fzf --layout reverse --info inline --query "$args"
+            fzf --style full \
+			--border \
+			--border-label "$root" \
+			--layout reverse \
+			--info inline \
+			--query "$args" \
+			--preview "tree -C -L 1 $root/{}"
     )
 elif command -v -- fdfind >/dev/null 2>&1; then
     select=$(
         fdfind "" --type d --no-ignore $root \
             --exclude "node_modules" --exclude "build" --exclude ".git" |
             sed "s#$root/*##" |
-            fzf --layout reverse --info inline --query "$args"
+            fzf --style full \
+			--border \
+			--border-label "$root" \
+			--layout reverse \
+			--info inline \
+			--query "$args" \
+			--preview "tree -C -L 1 $root/{}"
     )
 else
     echo "fd_not_found"

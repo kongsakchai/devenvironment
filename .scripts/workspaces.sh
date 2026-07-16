@@ -7,13 +7,6 @@ jp() {
     fi
 }
 
-ff() {
-    dir=$(ffile "$1" "$2")
-    if [ -n $dir ]; then
-        echo $dir
-    fi
-}
-
 me() {
     jp "$1" $WORKSPACE
 }

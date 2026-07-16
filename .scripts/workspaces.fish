@@ -5,13 +5,6 @@ function jp
     end
 end
 
-function ff
-    set dir (ffile "$argv[1]" "$argv[2]")
-    if test -n $dir
-        echo $dir
-    end
-end
-
 function me
     jp "$argv[1]" $WORKSPACE
 end
