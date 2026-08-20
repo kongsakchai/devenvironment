@@ -1,3 +1,0 @@
-#! /bin/bash
-
-go test -coverprofile=./coverage.out $1 | colorize && go tool cover -html=./coverage.out

@@ -1,12 +1,12 @@
-function jp
-    set dir (fdir "$argv[1]" "$argv[2]")
+function jj
+    set dir (wsdir "$argv[1]" "$argv[2]")
     if test -n "$dir"
         cd $dir
     end
 end
 
 function me
-    jp "$argv[1]" $WORKSPACE
+    jj "$argv[1]" $WORKSPACE
 end
 
 # --- Workspace Commands ---
@@ -18,42 +18,42 @@ function ws
         wslist
         return
     end
-    make -C (fdir "$argv[1]" $work_path) $argv[2] FROM=(pwd)
+    make -C (wsdir "$argv[1]" $work_path) $argv[2] FROM=(pwd)
 end
 
 function wg
-    jp "$argv[1]" $work_path
+    jj "$argv[1]" $work_path
 end
 
 # --- Project Commands ---
 set -g project_path $WORKSPACE/projects
 
 function pr
-    make -C (fdir "$argv[1]" $project_path) $argv[2] FROM=(pwd)
+    make -C (wsdir "$argv[1]" $project_path) $argv[2] FROM=(pwd)
 end
 
 function pg
-    jp "$argv[1]" $project_path
+    jj "$argv[1]" $project_path
 end
 
 # --- Lab Commands ---
 set -g lab_path $WORKSPACE/labs
 
 function lb
-    make -C (fdir "$argv[1]" $lab_path) $argv[2] FROM=(pwd)
+    make -C (wsdir "$argv[1]" $lab_path) $argv[2] FROM=(pwd)
 end
 
 function lg
-    jp "$argv[1]" $lab_path
+    jj "$argv[1]" $lab_path
 end
 
 # --- Second Brain Commands ---
 set -g brain_path $WORKSPACE/brains
 
 function br
-    make -C (fdir "$argv[1]" $brain_path) $argv[2] FROM=(pwd)
+    make -C (wsdir "$argv[1]" $brain_path) $argv[2] FROM=(pwd)
 end
 
 function brg
-    jp "$argv[1]" $brain_path
+    jj "$argv[1]" $brain_path
 end
