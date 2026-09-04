@@ -1,6 +1,6 @@
 #! /bin/bash
 
-jj() {
+jmp() {
     dir=$(wsdir "$1" "$2")
     if [ -n $dir ]; then
         cd $dir
@@ -8,7 +8,7 @@ jj() {
 }
 
 me() {
-    jj "$1" $WORKSPACE
+    jmp "$1" $WORKSPACE
 }
 
 # --- Workspace Commands ---
@@ -26,7 +26,7 @@ ws() {
 
 # wg: Go to Workspace
 wg() {
-    jj "$1" $work_path
+    jmp "$1" $work_path
 }
 
 # --- Project Commands ---
@@ -39,7 +39,7 @@ pr() {
 
 # pg: Go to Projects
 pg() {
-    jj "$1" $project_path
+    jmp "$1" $project_path
 }
 
 # --- Lab Commands ---
@@ -52,7 +52,7 @@ lb() {
 
 # lg: Go to Labs
 lg() {
-    jj "$1" $lab_path
+    jmp "$1" $lab_path
 }
 
 # --- Second Braind Command ---
@@ -65,5 +65,5 @@ br() {
 
 # sg: Go to Second Brains ---
 brg() {
-    jj "$1" $brain_path
+    jmp "$1" $brain_path
 }

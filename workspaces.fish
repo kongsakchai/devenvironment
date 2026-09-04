@@ -1,4 +1,4 @@
-function jj
+function jmp
     set dir (wsdir "$argv[1]" "$argv[2]")
     if test -n "$dir"
         cd $dir
@@ -6,7 +6,7 @@ function jj
 end
 
 function me
-    jj "$argv[1]" $WORKSPACE
+    jmp "$argv[1]" $WORKSPACE
 end
 
 # --- Workspace Commands ---
@@ -22,7 +22,7 @@ function ws
 end
 
 function wg
-    jj "$argv[1]" $work_path
+    jmp "$argv[1]" $work_path
 end
 
 # --- Project Commands ---
@@ -33,7 +33,7 @@ function pr
 end
 
 function pg
-    jj "$argv[1]" $project_path
+    jmp "$argv[1]" $project_path
 end
 
 # --- Lab Commands ---
@@ -44,7 +44,7 @@ function lb
 end
 
 function lg
-    jj "$argv[1]" $lab_path
+    jmp "$argv[1]" $lab_path
 end
 
 # --- Second Brain Commands ---
@@ -55,5 +55,5 @@ function br
 end
 
 function brg
-    jj "$argv[1]" $brain_path
+    jmp "$argv[1]" $brain_path
 end
