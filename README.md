@@ -92,6 +92,7 @@ ws marin # start mariadb container
 ws roxy # start cloudbeaver container
 ws yuki # start mysql container
 ws rem # start mongo container
+ws mailpit # start mailpit container
 ```
 
 use `ws arg stop` to stop container. alais of `docker compose down`.
