@@ -51,7 +51,7 @@ end
 set -g brain_path $WORKSPACE/brains
 
 function br
-    make -C (wsdir "$argv[1]" $brain_path) $argv[2] FROM=(pwd)
+    make -C $brain_path $argv[1] FROM=(pwd)
 end
 
 function brg

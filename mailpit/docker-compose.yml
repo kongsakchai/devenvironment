@@ -1,6 +1,6 @@
 services:
   mailpit:
-    container_name: mailpit
+    container_name: ws-mailpit
     image: axllent/mailpit:v1.34.0
     environment:
       MP_DATABASE: /data/mailpit.db

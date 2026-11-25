@@ -60,7 +60,7 @@ brain_path="$WORKSPACE/brains"
 
 # sb: Make in Second Brains ---
 br() {
-    make -C $(wsdir "$1" $brain_path) $2 FROM=$(PWD)
+    make -C $brain_path $1 FROM=$(PWD)
 }
 
 # sg: Go to Second Brains ---
